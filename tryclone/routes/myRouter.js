@@ -113,14 +113,18 @@ router.post('/insert', upload.single("image"), (req, res)=>{
 // each product that go to by id
 router.get('/:id', (req, res)=>{
     // id page from id in database
+    // console.log(product_id);
     const product_id = req.params.id;
-    console.log(product_id);
+    
 
     // find that id are equal in product just only one
     Product.findOne({_id : product_id}).exec((err, doc)=>{
         console.log(doc);
         if (err) console.log(err);
-        // res.render('product')
+
+        // when find that go to this page it show each item
+        // when want to show it example product.name
+        res.render('product', {product : doc})
     })
     
 })
