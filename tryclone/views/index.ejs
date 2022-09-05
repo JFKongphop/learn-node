@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KongRuksiam Shop</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/jquery-3.4.1.slim.min.js"></script>
+        <script src="js/popper.min.js" ></script>
+        <scrip src="js/bootstrap.min.js" />
+        <link rel="stylesheet" href="css/all.css" />
+    </head>
+    <body>
+        <%- include('navbar')%>
+        <div class="container">
+            <div class="row my-3">
+                <% Object.values(product).forEach((item)=>{%>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="product.html"><img class="card-img-top" src="<%= item.image %>" alt="" /></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="product.html"><%= item.name %></a>
+                                </h4>
+                                <h5>price <%= item.price %> ฿</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt reprehenderit ea iure, rerum debitis ab voluptate delectus doloribus</p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <script></script>
+    </body>
+</html>
