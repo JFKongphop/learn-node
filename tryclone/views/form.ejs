@@ -23,7 +23,8 @@
                 <div class="col-md-8 mb-4">
                     <!-- set method and action to send data to server -->
                     <!-- use POST instead GET to hide data -->
-                    <form class="form-horizontal" method="POST" action="/insert">
+                    <!-- set enctype to read file when use image to send to database -->
+                    <form class="form-horizontal" method="POST" action="/insert" enctype="multipart/form-data">
                         <div class="form-group">
                           <label class="control-label col-sm-2">ชื่อสินค้า</label>
                           <div class="col-sm-10">
@@ -42,6 +43,7 @@
                             <label class="control-label col-sm-2">ภาพสินค้า</label>
                             <div class="col-sm-10">
                               <!-- set value of data -->
+
                               <input type="file" class="form-control" name="image">
                             </div>
                         </div>
