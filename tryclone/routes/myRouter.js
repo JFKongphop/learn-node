@@ -86,6 +86,7 @@ router.get('/delete/:id', (req, res)=>{
 
 router.post('/insert', upload.single("image"), (req, res)=>{
 
+    // file element when upload
     console.log(req.file);
 
     // show object after get data that show json
@@ -129,5 +130,44 @@ router.get('/:id', (req, res)=>{
     
 })
 
+// edit data in this id
+router.post('/edit', (req, res)=>{
+
+    // get id when will edit
+    const edit_id = req.body.edit_id
+    console.log(edit_id);
+
+    // find each item to edit data in it
+    Product.findOne({_id : edit_id}).exec((err, doc)=>{
+        console.log(doc);
+        if (err) console.log(err);
+
+        // send initial for edit in form
+        res.render('edit', {product : doc})
+
+        // when edited that send data back to this item
+        // res.render('product', {product : doc})
+    })
+})
+
+// update when edit done
+router.post('/update', (req, res)=>{
+
+    // update data in object that is new data from form edit
+    // set update new id
+    // not set new class but use same class and edit data
+    const update_id = req.body.update_id
+    let data = {
+        name : req.body.name,
+        price : req.body.price,
+        description : req.body.description
+    }
+
+    // update data by id when update that go to manage
+    Product.findByIdAndUpdate(update_id, data, {useFindAndModify : false}).exec(err=>{
+        if (err) console.log(err);
+        res.redirect('/manage')
+    })
+})
 
 module.exports = router
