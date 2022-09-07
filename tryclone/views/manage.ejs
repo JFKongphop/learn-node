@@ -21,7 +21,7 @@
         </nav>
         <div class="container">
             <h2>จัดการสินค้า</h2>
-            <p>เพิ่ม ลบ แก้ไขข้อมูลในฐานข้อมูล</p>            
+            <p>เพิ่ม ลบ แก้ไขข้อมูลในฐานข้อมูล <a href="/logout">Logout</a></p>            
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -42,7 +42,7 @@
                             <td>
                                 <form action="/edit" method="POST">
                                     <!-- send id to edit data and send data edit_id -->
-                                    <input type="text" name="edit_id" value="<%= item._id %>">
+                                    <input type="hidden" name="edit_id" value="<%= item._id %>">
                                     <button type="submit" class="btn btn-primary">แก้ไข</button>
                                 </form>
                             </td>
